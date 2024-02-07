@@ -1,9 +1,9 @@
 
+numero: int = 0
 sumatoria: int = 0
-resultado: int = 0
 
-while sumatoria < 100:
-    sumatoria += 1
-    resultado = sumatoria + resultado
+while numero < 100:
+    numero += 1
+    sumatoria = numero + sumatoria
 
-print(resultado)
+print(sumatoria)
