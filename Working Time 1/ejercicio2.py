@@ -17,3 +17,5 @@ print(mi_lista)
 mi_lista.pop(-1)
 print(mi_lista)
 
+
+
