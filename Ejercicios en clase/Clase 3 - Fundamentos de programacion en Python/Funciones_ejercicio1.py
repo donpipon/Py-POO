@@ -1,10 +1,12 @@
 
+# multiplicar los numeros enteros positivos entre sí, a partir de una lista
 def multiplicar(numeros: list) -> int:
     resultado = 1
     for numero in numeros:
         resultado *= numero
     return resultado
 
+# funcion para ingresar una serie de numeros por consola y agregar a lista
 def ingresar_numeros() -> list:
     numeros = []
     while True:
@@ -19,7 +21,7 @@ def ingresar_numeros() -> list:
 operacion: str = input("Seleccione opcion:\n"
                   "1) Suma\n"
                   "2) Multiplicación\n"
-                  "(cualquier otra tecla para salir del programa)\n")
+                  "(cualquier otro input para salir)\n")
 
 if operacion not in ("1","2"):
     exit()
