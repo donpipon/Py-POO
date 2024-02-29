@@ -1,0 +1,31 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>90</x><y>20</y><w>350</w><h>120</h></coordinates><panel_attributes>&lt;&lt;Class Fabrica&gt;&gt;
+
+--
+-listaSucursales: List
+--
++ agregarSucursal()
++ [instrumento] listarInstrumentos()
++ [instrumento] instrumentosPorTipo(tipoInstrumento)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>180</y><w>210</w><h>140</h></coordinates><panel_attributes>&lt;&lt;Clase Sucursal&gt;&gt;
+
+--
+-id: int
+-nombre: str
+-instrumentos: List
+--
++ agregarInstrumento()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>130</y><w>60</w><h>70</h></coordinates><panel_attributes>lt=&lt;-
+1 a n</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>370</y><w>210</w><h>110</h></coordinates><panel_attributes>&lt;&lt;Class Instrumento&gt;&gt;
+
+--
+-id: int
+-precio: float
+-tipoInstrumento
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>410</y><w>210</w><h>70</h></coordinates><panel_attributes>&lt;Enum&gt;
+--
+-CAT1 = "Percusion"
+-CAT2 = "Viento"
+-CAT3 = "Cuerda"</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>440</y><w>170</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;150;10</additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>310</y><w>60</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
+1 a n</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element></diagram>
