@@ -79,9 +79,10 @@ class Sucursal:
         instrumento_encontrado = False
         for instrumento in self.instrumentos:
             if instrumento.id == id:
-                print(f'Instrumento {id} eliminado')
+                print(f'* Instrumento {id} eliminado *')
                 self.instrumentos.remove(instrumento)
                 instrumento_encontrado = True
+                break
         if not instrumento_encontrado:
             print(f'[ERROR] - El instrumento con Id"{id}" no se encuentra en sucursal {self.nombre}')
 
@@ -95,12 +96,15 @@ class Instrumento:
 
 
 if __name__ == "__main__":
+
     #instancia de fabrica
     fabrica1 = Fabrica()
+
     #instancias de sucursales
     sucursal1 = Sucursal("01", "Boedo")
     sucursal2 = Sucursal("02", "Palermo")
     sucursal3 = Sucursal("03", "Calamuchita")
+
     #instancias de instrumentos
     instrumento1 = Instrumento("001", 5000, TipoInstrumento.PERCUSION)
     instrumento2 = Instrumento("002", 15000, TipoInstrumento.PERCUSION)
@@ -133,26 +137,36 @@ if __name__ == "__main__":
 
     #Generar y mostrar lista de instrumentos por tipo
     lista_instrumentos_percusion = fabrica1.instrumentosPorTipo(TipoInstrumento.PERCUSION)
-    print(f'Listado de instrumentos de Precusión')
+    print(f'------------------------------------\n'
+          f'Listado de instrumentos de Percusión')
     for instrumento, nombre_sucursal in lista_instrumentos_percusion:
         print(f'- ID: {instrumento.id}, Precio: ${instrumento.precio} (Sucursal {nombre_sucursal})')
+    print(f'------------------------------------')
 
     #BORRAR INSTRUMENTO "001"
     sucursal1.borrarInstrumento("001")
 
     # Generar y mostrar lista actualizada, despues de borrar el instrumento 001
     lista_instrumentos_percusion = fabrica1.instrumentosPorTipo(TipoInstrumento.PERCUSION)
-    print(f'Listado de instrumentos de Precusión')
+    print(f'------------------------------------\n'
+          f'Listado de instrumentos de Percusión')
     for instrumento, nombre_sucursal in lista_instrumentos_percusion:
         print(f'- ID: {instrumento.id}, Precio: ${instrumento.precio} (Sucursal {nombre_sucursal})')
+    print(f'------------------------------------')
 
-    porcentajes1 = fabrica1.porcInstrumentosPorTipo("Boedo")
-    porcentajes2 = fabrica1.porcInstrumentosPorTipo("Palermo")
-    porcentajes3 = fabrica1.porcInstrumentosPorTipo("Calamuchita")
+    #calcular porcentajes de instrumento por tipo, por cada sucursal y mostrar a consola
+    for sucursal in fabrica1.sucursales:
+        porcentajes = fabrica1.porcInstrumentosPorTipo(sucursal.nombre)
+        print(f'Porcentaje de instrumentos por tipo en sucursal {sucursal.nombre}:\n'
+              f'Percusión: {porcentajes["Percusión"]}%\n'
+              f'Viento: {porcentajes["Viento"]}%\n'
+              f'Cuerda: {porcentajes["Cuerda"]}%\n')
 
-    print(porcentajes1)
-    print(porcentajes2)
-    print(porcentajes3)
+
+
+
+
+
 
 
 
